@@ -22,4 +22,14 @@ return {
   -- 		},
   -- 	},
   -- },
+
+  {
+    "ajbucci/ipynb.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "neovim/nvim-lspconfig",
+    },
+    opts = {},
+  },
 }

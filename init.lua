@@ -35,3 +35,22 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- Custom Jupytext keymap
+vim.keymap.set("n", "<leader>js", function()
+  vim.cmd("write")
+  local file = vim.fn.expand("%:p")
+  vim.fn.jobstart({ "jtsync", file }, {
+    stdout_buffered = true,
+    on_stdout = function(_, data)
+      if data then
+        print(table.concat(data, " "))
+      end
+    end,
+    on_stderr = function(_, data)
+      if data then
+        print(table.concat(data, " "))
+      end
+    end,
+  })
+end, { desc = "Jupytext sync current notebook" })
