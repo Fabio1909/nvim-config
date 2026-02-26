@@ -24,12 +24,28 @@ return {
   -- },
 
   {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    opts = {},
+  },
+
+  {
     "ajbucci/ipynb.nvim",
     lazy = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "neovim/nvim-lspconfig",
     },
-    opts = {},
+    opts = {
+      shadow = { location = "workspace" },
+    },
   },
+  {
+    'nvim-telescope/telescope.nvim', version = '*',
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        -- optional but recommended
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    }
+},
 }

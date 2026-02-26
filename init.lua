@@ -54,3 +54,5 @@ vim.keymap.set("n", "<leader>js", function()
     end,
   })
 end, { desc = "Jupytext sync current notebook" })
+
+
